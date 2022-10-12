@@ -1,0 +1,50 @@
+<p>department works!</p>
+<div>
+    {{dept.id}} : {{dept.name}} : {{dept.capacity}}
+</div>
+
+<input type="text" [(ngModel)]="ndept.id">
+<input type="text" [(ngModel)]="ndept.name">
+<input type="text" [(ngModel)]="ndept.capacity">
+<button (click)="Add()">Add</button>
+
+<table class = "table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Id</th>
+            <th>Name</th> 
+            <th>Capacity</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of depts; let ser=index;let f = first">
+        <td>{{ser+1}}{{f}}</td>
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.capacity}}</td>
+        <td>
+            <button class ="btn btn-info" (click)="Show(item.id)">
+                Details
+            </button>
+        </td>
+
+    </tr>
+</tbody> 
+</table>
+
+
+
+<input [(ngModel)]="dept.capacity" type="text">
+
+<h1 style="background-color: red;" *ngIf="dept.capacity>30;else t4">
+
+    {{dept.name}}
+</h1>
+
+<ng-template #t4>
+    <h1>
+        capacity of dept less than 30 
+    </h1>
+</ng-template>

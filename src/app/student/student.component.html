@@ -1,0 +1,29 @@
+<p>student works!</p>
+<h1>
+    {{stdName}}
+</h1>
+
+<img [alt]="stdName" [src]="stdImg">
+
+<div [innerText]="stdName"></div>
+
+<table [border]="2">
+    <tr>
+       <th>id</th>
+       <th>Name</th>
+       </tr>
+       <tr>
+        <td [attr.colspan]="x">
+            alyy
+        </td>
+       </tr>
+
+</table>
+
+<button (click)="myFun(t1.value)">click</button>
+
+<!-- <input type="text" (keyup)="updateName($event)"> -->
+
+<input [(ngModel)]="stdName" type="text">
+<input type="text" [value]="stdName" #t2 (keyup)="stdName=t2.value">
+<input #t1 type="text" (blur)="updateName(t1.value)" (keyup.enter)="updateName(t1.value)">
